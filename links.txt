@@ -20,6 +20,14 @@ https://www.w3schools.com/python/numpy/numpy_array_iterating.asp
 
 https://jovian.ai/holyscripturesareable/numpy-array-operations
 
+https://sites.psu.edu/symbolcodes/codehtml/#math
+
+https://www.keynotesupport.com/internet/special-characters-greek-letters-symbols.shtml
+
+https://github.com/KaTeX/KaTeX/issues/667
+
+https://www.geeksforgeeks.org/introduction-to-artificial-neutral-networks/
+
 https://www.youtube.com/watch?v=GlcnxUlrtek
 
 https://stats.stackexchange.com/questions/333394/what-is-the-derivative-of-the-relu-activation-function
