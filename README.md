@@ -18,7 +18,7 @@
 ## Building a Neural Network
 #### Now that we have understood the basics of a neural network, let us try and build one. Below is the architecture that we are going to use for this exercise:
 
-![Image - Artificial Neuron](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/neural-network-3816319_640.png)
+![Image - Artificial Neuron](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L5.jpg)
 
 #### Here we have the following entities:
 
@@ -46,7 +46,7 @@
 
 - This value is then passed to the activation function. The reason for using an activation function in a neural network is to introduce a non-linearity. For example, I have used tanh function as one of the activation functions in the network. Below is its equation:
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/tanh.JPG)
+![Image - Tanh Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/tanh.JPG)
 
 - This activated output of a neuron is transmitted to the next neuron as an input and this process is followed until the last layer's neurons. The last layer gives us the output of the network.
 
@@ -54,7 +54,7 @@
 
 - Once the input data has traversed through the entire network, the last layer of the network gives us the predicted output. In order to ascertain, how close is the output with the expected one, we calculate loss. There are a lot of methods using which loss can be calculated, but since I have built this network for binary classification, I have used binary cross entropy. Below is the formula for calculating the binary cross entropy loss:
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/cost%20function.JPG)
+![Image - Cost Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/cost%20function.JPG)
 
 ## Backward Propagation
 
@@ -63,66 +63,73 @@
 - In order to understand this in depth, we have to be brushed up with core Mathematical concepts like Linear Algebra, Partial Differentiation, Matrix Multiplication, Chain Rule, etc. You can skip the below part in case you are not interested in knowing the Mathematics going on behind the scenes.
 - The way to update the weights using back propagation is by using the below relationship:
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/Grad%20Descent.JPG)
+![Image - Gradient Descent](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/Grad%20Descent.JPG)
 
 Here, &alpha; is the learning rate. Using this we can control the rate at which the weights get trained and updated.
 In order to perform the partial differentiation, we need to understand the **Chain Rule**. In order to demonstrate the Chain Rule, I will try to differentiate the loss with the first weight in each layer:
 
 Layer #5 (Output Layer)
-In the diagram above, we can see that the back propagation is exactly same as Forward Propagation, except the direction of flow of information. Here the flow of information is from output to input, last layer to the last but one layer. Let us see how the chain rule works for this layer:
+![Image - Back Propagation Layer #5](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L5_1.jpg.png)
+In the diagram above, the highlighted part shows the flow of information, from last layer to the Layer # 5.
 We know that, back propagation helps us in optimise/update weights and biases by using the below relation:
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/Grad%20Descent.JPG)
+![Image - Gradient Descent](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/Grad%20Descent.JPG)
 
-Now, we already have the weights with us, usually we decide &alpha; using hyperparameter tuning. The only part left to calculate is the partial differentiation term.
+Now, we already have the weights with us, we generally decide &alpha; using hyperparameter tuning. The only part left to calculate is the partial differentiation term.
 For this calculation, we shall use the concept of Chain rule. Let us try to differentiate the loss function with respect to the weights associated with this layer, one by one:
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%205.JPG)
+![Image - Layer 5 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%205.JPG)
 
 Layer 4 (Hidden Layer)
-In this diagram, we can see the flow of information from Layer #4 to Layer #3. We can express this information flow in the following equation for back propagation:
+![Image - Back Propagation Layer #4](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L4_1.png)
+In this diagram, we can see the flow of information from the output layer to Layer #4. We can express this information flow in the following equation for back propagation:
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%204.JPG)
+![Image - Layer 4 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%204.JPG)
 
 Layer 3 (Hidden Layer)
-In this diagram, we can see the flow of information from Layer #3 to Layer #2. We can express this information flow in the following equation for back propagation:
+![Image - Back Propagation Layer #3](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L3_1.png)
+In this diagram, we can see the flow of information from the output layer to Layer #3. We can express this information flow in the following equation for back propagation:
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%203_1.JPG)
+![Image - Layer 3 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%203_1.JPG)
 
 When simplified, this equation looks like this:
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%203_2.JPG)
+![Image - Layer 3 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%203_2.JPG)
 
 This equation might look very daunting but if you try to write it down in your notebook, you can see a pattern. We have summation signs in this equation due to the fact that from the third layer onwards, the output of the neurons traverse into all the neurons in the succeeding layers, hence during the back propagation as well, the flow would be via all the neurons in the outer layers.
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%203_3.JPG)
+![Image - Layer 3 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%203_3.JPG)
 
 Layer 2 (Hidden Layer)
-In this diagram, we can see the flow of information from Layer #2 to Layer #1. We can express this information flow in the following equation for back propagation:
+![Image - Back Propagation Layer #2](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L2_1.png)
+In this diagram, we can see the flow of information from the output layer to Layer #2. Here, I have shown only two flows, however, the flow would happen from all the neurons of Layer #4, since all the neurons in this layer are affected by the weight.
+We can express this information flow in the following equation for back propagation:
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%202_1.JPG)
+![Image - Layer 2 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%202_1.JPG)
 
 When simplified, this equation looks like this:
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%202_2.JPG)
+![Image - Layer 2 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%202_2.JPG)
 
 If this equation looks scary, then just try to copy it on your notebook and see that there is a definite pattern. Similar to the previous layer equation, we have summation signs in this equation due to the fact that from the third layer onwards, the output of the neurons traverse into all the neurons in the succeeding layers, hence during the back propagation as well, the flow would be via all the neurons in the outer layers.
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%202_3.JPG)
+![Image - Layer 2 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%202_3.JPG)
 
 Layer 1 (Hidden Layer)
+![Image - Back Propagation Layer #1](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L1_1.png)
+In this diagram, we can see the flow of information from the output layer to Layer #1. Here, I have shown only three flows, however, the flow would happen from all the neurons of Layer #4 & Layer #3, since all the neurons in these layer are affected by the weight.
 We shall not go into the equation for this layer, even though it will have an easy-to-find pattern but it will be a huge equation. Rather, let us jump directly to the matrix of derivatives:
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%201_1.JPG)
+![Image - Layer 1 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%201_1.JPG)
 
 ### We observed here that all we have to do is to calculate &delta;<sub>y</sub><sup>x</sup> and multiply it by the inputs to the neuron and would have the derivative.
 
 #### Applying a little more of Linear Algebra in the above equations, we have the below simplified relations:
 
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/final%20delta%20calc%201.JPG)
+![Image - Final Delta Calculations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/final%20delta%20calc%201.JPG)
 
-![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/final%20delta%20calc%202.JPG)
+![Image - Final Delta Calculations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/final%20delta%20calc%202.JPG)
 
 #### We can see that all we have to calculate is &delta;<sub>1</sub><sup>5</sup> and rest all the &delta;s can be calculated one by one.
 
