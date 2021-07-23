@@ -69,7 +69,7 @@ Here, &alpha; is the learning rate. Using this we can control the rate at which 
 In order to perform the partial differentiation, we need to understand the **Chain Rule**. In order to demonstrate the Chain Rule, I will try to differentiate the loss with the first weight in each layer:
 
 Layer #5 (Output Layer)
-![Image - Back Propagation Layer #5](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L5_1.jpg.png)
+![Image - Back Propagation Layer #5](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L5_1.jpg)
 In the diagram above, the highlighted part shows the flow of information, from last layer to the Layer # 5.
 We know that, back propagation helps us in optimise/update weights and biases by using the below relation:
 
@@ -81,13 +81,13 @@ For this calculation, we shall use the concept of Chain rule. Let us try to diff
 ![Image - Layer 5 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%205.JPG)
 
 Layer 4 (Hidden Layer)
-![Image - Back Propagation Layer #4](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L4_1.png)
+![Image - Back Propagation Layer #4](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L4_1.jpg)
 In this diagram, we can see the flow of information from the output layer to Layer #4. We can express this information flow in the following equation for back propagation:
 
 ![Image - Layer 4 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%204.JPG)
 
 Layer 3 (Hidden Layer)
-![Image - Back Propagation Layer #3](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L3_1.png)
+![Image - Back Propagation Layer #3](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L3_1.jpg)
 In this diagram, we can see the flow of information from the output layer to Layer #3. We can express this information flow in the following equation for back propagation:
 
 ![Image - Layer 3 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%203_1.JPG)
@@ -101,7 +101,7 @@ This equation might look very daunting but if you try to write it down in your n
 ![Image - Layer 3 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%203_3.JPG)
 
 Layer 2 (Hidden Layer)
-![Image - Back Propagation Layer #2](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L2_1.png)
+![Image - Back Propagation Layer #2](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L2_1.jpg)
 In this diagram, we can see the flow of information from the output layer to Layer #2. Here, I have shown only two flows, however, the flow would happen from all the neurons of Layer #4, since all the neurons in this layer are affected by the weight.
 We can express this information flow in the following equation for back propagation:
 
@@ -116,7 +116,7 @@ If this equation looks scary, then just try to copy it on your notebook and see 
 ![Image - Layer 2 Equations](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%202_3.JPG)
 
 Layer 1 (Hidden Layer)
-![Image - Back Propagation Layer #1](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L1_1.png)
+![Image - Back Propagation Layer #1](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/BP_L1_1.jpg)
 In this diagram, we can see the flow of information from the output layer to Layer #1. Here, I have shown only three flows, however, the flow would happen from all the neurons of Layer #4 & Layer #3, since all the neurons in these layer are affected by the weight.
 We shall not go into the equation for this layer, even though it will have an easy-to-find pattern but it will be a huge equation. Rather, let us jump directly to the matrix of derivatives:
 
