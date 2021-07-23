@@ -74,7 +74,7 @@ We know that, back propagation helps us in optimise/update weights and biases by
 
 ![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/Grad%20Descent.JPG)
 
-Now, we already have the weights with us, usually we decide $\alpha$ using hyperparameter tuning. The only part left to calculate is the partial differentiation term.
+Now, we already have the weights with us, usually we decide &alpha; using hyperparameter tuning. The only part left to calculate is the partial differentiation term.
 For this calculation, we shall use the concept of Chain rule. Let us try to differentiate the loss function with respect to the weights associated with this layer, one by one:
 
 ![Image - Input to Activation Function](https://raw.github.com/rahul-adwani/neural-network-with-numpy/main/images/layer%205.JPG)
