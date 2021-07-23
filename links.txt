@@ -8,6 +8,8 @@ https://www.wolframalpha.com/input/?i=derivative+of+tanh%28x%29
 
 https://www.geeksforgeeks.org/python-ways-to-sum-list-of-lists-and-return-sum-list/
 
+https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a
+
 https://www.geeksforgeeks.org/deep-neural-net-with-forward-and-back-propagation-from-scratch-python/
 
 https://github.com/stephencwelch/Neural-Networks-Demystified/blob/master/Part%203%20Gradient%20Descent.ipynb
